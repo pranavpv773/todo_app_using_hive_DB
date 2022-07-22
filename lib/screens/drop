@@ -1,0 +1,89 @@
+
+import 'package:flutter/material.dart';
+import 'package:to_do_flutter_application/db/modal/drop_class.dart';
+import 'package:to_do_flutter_application/screens/new_task.dart';
+
+List<Drop> droplist =[
+    const Drop(name: 'All List',icon: Icons.home),
+    const Drop(name: 'Default',icon: Icons.format_list_bulleted_rounded),
+    const Drop(name: 'Personal',icon: Icons.format_list_bulleted_rounded),
+    const Drop(name: 'Shopping',icon: Icons.format_list_bulleted_rounded),
+    const Drop(name: 'Wishlist',icon: Icons.format_list_bulleted_rounded),
+    const Drop(name: 'Work',icon: Icons.format_list_bulleted_rounded),
+    const Drop(name: 'Finished',icon: Icons.check_box),
+  ];
+
+class TODoHome extends StatefulWidget {
+  const TODoHome({Key? key}) : super(key: key);
+
+  @override
+  State<TODoHome> createState() => _TODoHomeState();
+}
+
+class _TODoHomeState extends State<TODoHome> {
+  
+
+  var index=0;
+  var value="droplist.value";
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 4, 50, 90),
+      appBar: AppBar(
+        backgroundColor: Colors.blue[700],
+        leading: const Icon(
+          Icons.check_circle,
+          size: 30,
+        ),
+        title: DropdownButton<String>(
+          icon: const Icon(
+            Icons.arrow_drop_down_outlined,
+            color: Colors.white,
+          ),
+          dropdownColor: const Color.fromARGB(255, 6, 76, 133),
+          underline: const DropdownButtonHideUnderline(child: Center()),
+          items:  droplist.map(var drop){
+            return selectedItemBuilder: ,
+          }
+
+          ,
+        ),
+        actions: [
+          IconButton(
+            onPressed: (() {}),
+            icon: const Icon(
+              Icons.search_outlined,
+            ),
+          ),
+          IconButton(
+            onPressed: (() {}),
+            icon: const Icon(
+              Icons.more_vert_rounded,
+            ),
+          )
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.white,
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (ctx) => const NewTask(),
+            ),
+          );
+        },
+        child: const Icon(
+          Icons.add,
+          color: Color.fromARGB(255, 8, 72, 128),
+          size: 40,
+        ),
+      ),
+    );
+  }
+}
